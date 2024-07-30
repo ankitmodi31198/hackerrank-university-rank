@@ -1,0 +1,15 @@
+<div class="layout-column align-items-center mt-50">
+  <section class="layout-row align-items-center justify-content-center">
+    <input type="number" class="large" placeholder="Enter Rank eg 5" data-test-id="app-input"
+      [(ngModel)]="universityRank" />
+    <button data-test-id="submit-button" (click)="searchClickHandler()">Search</button>
+  </section>
+
+  <ul *ngIf="universitiesList?.length" class="mt-50 styled" data-test-id="universities-list">
+    <ng-container *ngFor="let university of universitiesList">
+      <li class="slide-up-fade-in py-10">{{university.university}}</li>
+    </ng-container>
+  </ul>
+
+  <div *ngIf="universitiesList && !(universitiesList.length)" class="mt-50 slide-up-fade-in" data-test-id="no-result">No Results Found</div>
+</div>
